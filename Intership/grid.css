@@ -1,0 +1,171 @@
+*{
+    background-color: green;
+}
+
+.outerDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.grid{
+    display : grid;
+    grid-template-columns : 20px 20px 20px 20px 20px 20px;
+    grid-template-rows : 20px 20px 20px 20px 20px 20px;
+
+
+}
+
+
+
+.box1{
+    background-color: red;
+    grid-row: span 2;
+
+    
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box2 {
+    background-color: blueviolet;
+    
+    border: 1px solid white;
+    border-collapse: collapse;
+
+}
+
+.box3{
+    background-color: red;
+    grid-column: span 2;
+    
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box4{
+    background-color: blue;
+    
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box5{
+    background-color: white;
+    grid-row: span 3;
+    
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box6{
+    background-color: orange;
+    grid-row: span 2;
+    
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box7{
+    background-color: white;
+    grid-column: span 2;
+    grid-row: span 2;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box8{
+    background-color: orange;
+    grid-row: span 2;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box9{
+    background-color: blueviolet;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box10{
+    background-color: orange;
+    grid-row: span 2;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box11{
+    background-color: blue;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box12{
+    background-color: blueviolet;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box13{
+    background-color: red;
+    grid-column: span 2;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box14{
+    background-color: white;
+    
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box15{
+    background-color: blueviolet;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box16{
+    background-color: orange;
+    grid-column: span 2;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box17{
+    background-color: blueviolet;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+.box18{
+    background-color: blue;
+
+        
+    border: 1px solid white;
+    border-collapse: collapse;
+}

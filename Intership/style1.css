@@ -1,0 +1,11 @@
+.container{
+    border:2px solid red;
+    margin: 25px;
+    padding: 50px;
+    background-color: lime;
+}
+.container>div{
+    border:1px solid blue;
+    padding: 20px;
+    margin: 30px;
+}
