@@ -1,4 +1,3 @@
-
 let headingTag = document.getElementById("heading");
 console.log(headingTag);
 
@@ -43,4 +42,5 @@ let removeElementBtn = document.getElementById("removeElementBtn");
 removeElementBtn.addEventListener("click" , (event) => {
     addElement.innerHTML = "";
 });
-5
+
+
