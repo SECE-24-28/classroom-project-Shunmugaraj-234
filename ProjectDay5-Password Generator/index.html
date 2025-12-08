@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: aqua;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 500px;
+            height: 800px;
+            margin: 50px auto;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: white; 
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .length-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .password-box {
+            width: 95%;
+            height: 50px;
+            background: #f2f2f2;
+            border-radius: 10px;
+            margin-top: 15px;
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px;
+            background: #5a0ae6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn.ghost {
+            background: #333;
+        }
+        label {
+            font-size: 16px;
+            display:inline flex;
+            align-items: center;
+            gap: 3px;
+            margin: 4px 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Password Generator</h1><br>
+
+        <div class="card">
+            <div class="length-row">
+                <label><strong>Password Length:</strong> <span id="lengthVal">12</span></label>
+                <input id="length" type="range" min="4" max="32" value="12">
+            </div>
+
+            <div id="optionsBox">
+                <label><input type="checkbox" id="lower" checked>Lowercase</label><br>
+                <label><input type="checkbox" id="upper" checked>Uppercase</label><br>
+                <label><input type="checkbox" id="numbers" checked> Numbers</label><br>
+                <label><input type="checkbox" id="symbols" checked>Symbols</label><br>
+            </div>
+            <div id="password" class="password-box"></div>
+
+            <button id="generateBtn" class="btn">Generate Password</button>
+
+
+
+            <button id="copyBtn" class="btn ghost">Copy Password</button>
+        </div>
+    </div>
+
+    <script>
+        const lengthEl = document.getElementById('length');
+        const lengthVal = document.getElementById('lengthVal');
+        const generateBtn = document.getElementById('generateBtn');
+        const passwordEl = document.getElementById('password');
+        const copyBtn = document.getElementById('copyBtn');
+
+        const SETS = {
+            lower: 'abcdefghijklmnopqrstuvwxyz',
+            upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            numbers: '0123456789',
+            symbols: '!@#$%^&*()_+-={}[]|:;<>,.?/'
+        };
+
+        lengthEl.addEventListener('input', () => {
+            lengthVal.textContent = lengthEl.value;
+        });
+
+        generateBtn.addEventListener('click', () => {
+            const len = Number(lengthEl.value);
+            const selected = Object.keys(SETS).filter(k =>
+            document.getElementById(k).checked
+            );
+
+        if (selected.length === 0) {
+            passwordEl.textContent = 'Select at least one option';
+            return;
+        }
+
+        let pool = '';
+        selected.forEach(k => pool += SETS[k]);
+
+        let password = '';
+        for (let i = 0; i < len; i++) {
+            password += pool[Math.floor(Math.random() * pool.length)];
+        }
+
+        passwordEl.textContent = password;
+        });
+
+        copyBtn.addEventListener('click', async () => {
+            const text = passwordEl.textContent.trim();
+        if (!text) return;
+
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => copyBtn.textContent = "Copy Password", 1500);
+        });
+
+    </script>
+</body>
+</html>
